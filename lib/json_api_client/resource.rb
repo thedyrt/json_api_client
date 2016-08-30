@@ -443,7 +443,7 @@ module JsonApiClient
       return nil unless relationship_definitions = relationships[method]
 
       # look in included data
-      if relationship_definitions.key?("data")
+      if relationship_definitions.key?("data") && last_result_set
         return last_result_set.included.data_for(method, relationship_definitions)
       end
 
